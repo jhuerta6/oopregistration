@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Student Registration</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+    table {
+      background: #fff;
+      border-collapse: collapse;
+      color: #222;
+      font-family: 'PT Sans', sans-serif;
+      font-size: 13px;
+      width: 100%;
+    }
+
+    td {
+      border: 1px solid #ccc;
+      color: #444;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    tr:first-child td {
+      color: #222;
+      font-weight: 700;
+    }
+
+    .selected {
+      background: #f0951d;
+      border: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .5) inset;
+    }
+
+  </style>
+</head>
+<body>
+  <!--TODO: add styling and color to the elements to make it look nice, classes and id's will be created -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Siki Registration</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">View Classes <span class="sr-only">(current)</span></a></li>
+          <li><a href="schedule.html">View Schedule</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="login.html">Student Login</a></li>
+          <li><a href="login.html">Faculty Login</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav><!--nav ends -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Your classes
+          </div>
+          <div class="panel-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td>Course</td>
+                  <td>Title</td>
+                  <td>CRN</td>
+                  <td>Remove</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MATH1401</td>
+                  <td>Calculus</td>
+                  <td>2940293</td>
+                  <td><a href="#"><span class="glyphicon glyphicon-minus-sign"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            Available Classes
+          </div>
+          <div class="panel-body">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td>Course</td>
+                  <td>Title</td>
+                  <td>CRN</td>
+                  <td>Remove</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>MATH1401</td>
+                  <td>Calculus</td>
+                  <td>2940293</td>
+                  <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></td>
+                </tr>
+                <tr>
+                  <td>HIST1401</td>
+                  <td>US History</td>
+                  <td>2940543</td>
+                  <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></td>
+                </tr>
+                <tr>
+                  <td>POLS1401</td>
+                  <td>Politics</td>
+                  <td>2943293</td>
+                  <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></td>
+                </tr>
+                <tr>
+                  <td>CS1401</td>
+                  <td>OOP</td>
+                  <td>2345693</td>
+                  <td><a href="#"><span class="glyphicon glyphicon-plus-sign"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- jquery -->
+  <script src="js/jquery.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+  $('tbody').delegate('.glyphicon-minus-sign', 'click', function(e){
+    $(this).closest('tr').remove();
+  });
+  $('tbody').delegate('.glyphicon-plus-sign', 'click', function(e){
+    var $row = $(this).closest('tr').clone();
+    $row.find('span').removeClass('glyphicon-plus-sign').addClass('glyphicon-minus-sign');
+    $($('tbody')[0]).append($row);
+  });
+  </script>
+</body>
+
+</html>

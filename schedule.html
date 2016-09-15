@@ -49,14 +49,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Siki Registration</a>
+        <a class="navbar-brand" href="index.html">Siki Registration</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="classes.html">View Classes <span class="sr-only">(current)</span></a></li>
-          <li><a href="schedule.html">View Schedule</a></li>
+          <li><a href="classes.html">View Classes</a></li>
+          <li class="active"><a href="#">View Schedule</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="login.html">Student Login</a></li>
@@ -70,36 +70,69 @@
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            Welcome Student!
+            Schedule by Month
           </div>
           <div class="panel-body">
-            From here you can manage your classes, view your schedule or check your records!
+            <table>
+              <tr>
+                <td>S</td>
+                <td>M</td>
+                <td>T</td>
+                <td>W</td>
+                <td>Th</td>
+                <td>F</td>
+                <td>S</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td>1</td>
+                <td>2</td>
+                <td class="selected">3-Math</td>
+                <td>4</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td class="selected">10-Math</td>
+                <td>11</td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td class="selected">17-Math</td>
+                <td>18</td>
+                <td>19</td>
+              </tr>
+              <tr>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td class="selected">24-Math</td>
+                <td>25</td>
+                <td>26</td>
+              </tr>
+              <tr>
+                <td>27</td>
+                <td>28</td>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="panel panel-info">
-          <div class="panel-heading">Add/remove Classes</div>
-          <div class="panel-body">
-            <a class="btn btn-success" href="classes.html">Add Class</a>
-            <a class="btn btn-danger" href="classes.html">Remove Class</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="panel panel-info">
-          <div class="panel-heading">Check Records</div>
-          <div class="panel-body">
-            <a class="btn btn-default" href="#">View Transcript <span class="glyphicon glyphicon-list-alt"></span></a>
-            <a class="btn btn-default" href="#">Check Holds <span class="glyphicon glyphicon-alert"></span></a>
-            <a class="btn btn-default" href="#">View GPA <span class="glyphicon glyphicon-check"></span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- jquery -->
   <script src="js/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
