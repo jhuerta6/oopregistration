@@ -35,4 +35,14 @@ public class User {
 		this.password = password;
 	}
 	/* End getters and setters */
+
+	/* Methods from class diagram */
+	public void browseItem(){
+		System.out.println("Method call: browseItem()");
+	}
+
+	public void register(){
+		System.out.println("Method call: register()");
+	}
+	/* End methods from class diagram */
 }
