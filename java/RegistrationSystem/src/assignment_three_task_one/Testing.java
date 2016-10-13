@@ -20,6 +20,8 @@ public class Testing {
 		ComputerSoftware game = new ComputerSoftware("Doom", 29.99);
 		game.printComputerSoftware();
 		game.printData();
+		
+		game.printItemType();
 
 	}
 }
