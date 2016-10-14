@@ -36,4 +36,10 @@ public class CreditCard {
 		CVS = cvs;
 	}
 	/* End getters and setters */
+	
+	public void getInfo(){//helper method
+		System.out.printf("Number: " + this.number + "%n" +
+				"Expiration date: " + this.expirationDate + "%n" + 
+				"CVS: " + this.CVS + "%n%n");
+	}
 }
