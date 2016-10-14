@@ -4,13 +4,12 @@ import java.util.*;
 
 public class Cart {
 
-	public double calculateCombinedPrice(Set<Item> cart){ //implement the set, calculate combined price of all the items in the screen
+	public double calculateCombinedPrice(Set<Item> cart){ 
 		double combinedPrice = 0;
 		Iterator<Item> it = cart.iterator();
 		for(;it.hasNext();){
 			combinedPrice += it.next().getPrice();
 		}
-		//System.out.println("Method call: calculateCombinedPrice()");
 		return combinedPrice;
 	}
 
@@ -26,7 +25,7 @@ public class Cart {
 		}
 	}
 
-	public void printCustomer(Customer person){ //should print customer name and customer ID
+	public void printCustomer(Customer person){
 		System.out.printf("Customer's name: " + person.getName() + "%n" + 
 				"Customer's ID: " + person.getUsername() + "%n%n"
 				);

@@ -5,10 +5,9 @@ import java.util.*;
 public class Customer extends User{
 	private String homeAddress;
 
-	public Customer(String name, String username, String password, String homeaddress/*, int number, String expiration, int cvs*/){
+	public Customer(String name, String username, String password, String homeaddress){
 		super(name, username, password);
 		homeAddress = homeaddress;
-		/*CreditCard customer = new CreditCard(number, expiration, cvs); //always create credit card when creating customer*/
 	}
 	/* get and set homeAddress*/
 	public String getHomeAddress(){
