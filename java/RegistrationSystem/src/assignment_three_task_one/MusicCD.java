@@ -2,8 +2,8 @@ package assignment_three_task_one;
 
 public class MusicCD extends Item{
 
-	public MusicCD(String title, double price){
-		super(title, price);
+	public MusicCD(String title, double price, Cart cart){
+		super(title, price, cart);
 	}
 	
 	/*Method from class diagram */

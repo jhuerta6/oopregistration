@@ -1,8 +1,8 @@
 package assignment_three_task_one;
 
 public class Book extends Item {
-	public Book(String title, double price){
-		super(title, price);
+	public Book(String title, double price, Cart cart){
+		super(title, price, cart);
 	}
 
 	/*Method from class diagram */

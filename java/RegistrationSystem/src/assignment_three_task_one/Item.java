@@ -3,10 +3,12 @@ package assignment_three_task_one;
 public class Item{
 	private String title;
 	private double price;
+	public Cart cart;
 	
-	public Item(String titles, double prices){
+	public Item(String titles, double prices, Cart cart){
 		title = titles;
 		price = prices;
+		this.cart = cart;
 	}
 	
 	/* Getters and setters */

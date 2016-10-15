@@ -3,6 +3,11 @@ package assignment_three_task_one;
 import java.util.*;
 
 public class Cart {
+	public Customer customer;
+	
+	public Cart(Customer customer){
+		this.customer = customer;
+	}
 
 	public double calculateCombinedPrice(Set<Item> cart){ 
 		double combinedPrice = 0;
