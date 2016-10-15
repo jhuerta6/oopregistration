@@ -4,10 +4,12 @@ import java.util.*;
 
 public class Customer extends User{
 	private String homeAddress;
+	public CreditCard creditcard;
 
-	public Customer(String name, String username, String password, String homeaddress){
+	public Customer(String name, String username, String password, String homeaddress, CreditCard creditcard){
 		super(name, username, password);
 		homeAddress = homeaddress;
+		this.creditcard = creditcard;
 	}
 	/* get and set homeAddress*/
 	public String getHomeAddress(){

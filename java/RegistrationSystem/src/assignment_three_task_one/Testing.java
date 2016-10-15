@@ -6,19 +6,20 @@ import java.util.*;
 
 public class Testing {
 	public static void main(String[] args){
-		Customer siki = new Customer("Zhoe Siki", "siki", "mizhoesiki", "1234 Juarez Street, Ciudad Juarez");
-		Manager admin = new Manager("Ad Min", "addme", "pass1234", "80978146");
 		CreditCard sikis = new CreditCard(12345678, "March 2017", 1234);
 		CreditCard sikis_two = new CreditCard(87654321, "June 2018", 4321);
 		Set<CreditCard> setCards = new HashSet<CreditCard>();
 		setCards.add(sikis);
 		setCards.add(sikis_two);
 
-		MusicCD wilco = new MusicCD("Schmilco", 15.99);
-		Book infinite = new Book("Infinite Jest", 10.99);
-		ComputerSoftware game = new ComputerSoftware("Doom", 29.99);
+		Customer siki = new Customer("Zhoe Siki", "siki", "mizhoesiki", "1234 Juarez Street, Ciudad Juarez", sikis);
+		Manager admin = new Manager("Ad Min", "addme", "pass1234", "80978146");
 		
-		Cart cart = new Cart();
+		Cart cart = new Cart(siki);
+		
+		MusicCD wilco = new MusicCD("Schmilco", 15.99, cart);
+		Book infinite = new Book("Infinite Jest", 10.99, cart);
+		ComputerSoftware game = new ComputerSoftware("Doom", 29.99, cart);
 		
 		Set<Item> toCart = new HashSet<Item>();
 		toCart.add(wilco); 
