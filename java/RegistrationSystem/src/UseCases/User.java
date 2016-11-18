@@ -34,4 +34,7 @@ public class User {
 	public void logout(){
 		this.loggedIn = false;
 	}
+	public void printClass(){
+		System.out.println(this.getClass().getName());
+	}
 }
