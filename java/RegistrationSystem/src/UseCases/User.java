@@ -11,7 +11,7 @@ public class User {
 		this.username = u;
 		this.password = p;
 		this.id = id;
-		this.name = name;
+		this.name = n;
 		this.loggedIn = false;
 	}
 	

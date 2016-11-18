@@ -24,6 +24,7 @@ public class StateMachine {
 	//Gives user instructions, takes user input, and performs the proper event.
 	public static void input(){
 		Scanner input = new Scanner(System.in);
+		printState();
 		System.out.println(); //For formatting sake.
 		System.out.println("Please enter the first letter of the event you desire. (not case-sensitive)");
 		System.out.println("[A]nomaly");
