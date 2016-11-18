@@ -20,4 +20,7 @@ public class ClassStore {
 			}
 		}
 	}
+	public Set<Class> getClasses(){
+		return this.classes;
+	}
 }
