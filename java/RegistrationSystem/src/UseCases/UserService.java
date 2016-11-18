@@ -8,14 +8,15 @@ public class UserService {
 	public UserService(){
 		users = new HashSet();
 	}
-	public boolean login(String username, String password){
+	public User login(String username, String password){
+		User current = null;
 		for(User u: users){
 			if(u.getUsername().equals(username) && u.getPassword().equals(password)){
 				u.login();
-				return true;
+				current = u;
 			}
 		}
-		return false;
+		return current;
 	}
 	public void logout(User u){
 		u.logout();
