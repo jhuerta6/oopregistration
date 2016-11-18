@@ -15,6 +15,9 @@ public class MenuActionListener implements ActionListener{
 		else if(arg0.getActionCommand().equals("Login")){
 			LoginWindow login = new LoginWindow();
 		}
+		else if(arg0.getActionCommand().equals("Users")){
+			UsersWindow users = new UsersWindow(source.users);
+		}
 
 	}
 

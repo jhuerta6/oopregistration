@@ -156,6 +156,7 @@ public class MainPage extends JFrame{
 			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Classes");
 			mntmNewMenuItem_1.addActionListener(menuListener);
 			JMenuItem viewUsers = new JMenuItem("Users");
+			viewUsers.addActionListener(menuListener);
 			mnNewMenu.add(mntmNewMenuItem_1);
 			mnNewMenu.add(viewUsers);
 

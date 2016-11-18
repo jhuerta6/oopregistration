@@ -19,10 +19,10 @@ public class ClassesWindow extends JFrame{
 		Set<Class> classSet = store.getClasses();
 		int numClasses = classSet.size();
 		if(numClasses > 1){
-			Object[][] classes = new Object[1][numClasses];
+			Object[][] classes = new Object[numClasses][1];
 			int i = 0;
 			for(Class c:classSet){
-				classes[0][i] = c.getTitle();
+				classes[i][0] = c.getTitle();
 				i++;
 			}
 			String[] headers = new String[] {"Class Title"};

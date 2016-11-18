@@ -34,4 +34,7 @@ public class UserService {
 				this.users.remove(u);
 		}
 	}
+	public Set<User> getUsers() {
+		return this.users;
+	}
 }
