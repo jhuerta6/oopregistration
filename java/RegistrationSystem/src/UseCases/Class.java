@@ -35,5 +35,8 @@ public class Class {
 				"\nEnds at: " + this.endTime;
 		return s;
 	}
+	public void setInstructor(Instructor i){
+		this.instructor = i;
+	}
 
 }

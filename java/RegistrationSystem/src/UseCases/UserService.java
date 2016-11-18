@@ -10,6 +10,9 @@ public class UserService {
 		users = new HashSet();
 		this.main = main;
 	}
+	public UserService(){
+		users = new HashSet();
+	}
 	public void login(String username, String password){
 		User current = null;
 		for(User u: users){
@@ -19,8 +22,10 @@ public class UserService {
 				break;
 			}
 		}
-		main.setCurrentUser(current);
-		main.drawMainPanel();
+		if(main!=null){
+			main.setCurrentUser(current);
+			main.drawMainPanel();
+		}
 	}
 	public void logout(User u){
 		u.logout();

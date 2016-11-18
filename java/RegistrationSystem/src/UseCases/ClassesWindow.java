@@ -18,7 +18,7 @@ public class ClassesWindow extends JFrame{
 		classesFrame.add(mainPanel);
 		Set<Class> classSet = store.getClasses();
 		int numClasses = classSet.size();
-		if(numClasses > 1){
+		if(numClasses > 0){
 			Object[][] classes = new Object[numClasses][1];
 			int i = 0;
 			for(Class c:classSet){

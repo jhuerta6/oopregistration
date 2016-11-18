@@ -145,6 +145,7 @@ public class MainPage extends JFrame{
 			JMenuItem manageClassesremove = new JMenuItem("Remove Class");
 			JMenuItem manageUseradd = new JMenuItem("Create User");
 			JMenuItem manageUserremove = new JMenuItem("Remove User");
+			manageClassesadd.addActionListener(menuListener);
 			manageMenu.add(manageClassesadd);
 			manageMenu.add(manageClassesremove);
 			manageMenu.add(manageUseradd);

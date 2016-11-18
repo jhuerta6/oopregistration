@@ -16,6 +16,11 @@ public class ButtonActionListener implements ActionListener{
 	JTextField username;
 	JPasswordField pass;
 	JFrame window;
+	private JTextField title;
+	private JTextField courseNumber;
+	private JTextField days;
+	private JTextField startTime;
+	private JTextField endTime;
 	public ButtonActionListener(MainPage source){
 		this.source = source;
 	}
@@ -23,6 +28,16 @@ public class ButtonActionListener implements ActionListener{
 		this.username = username;
 		this.pass = pass;
 		this.window = window;
+	}
+	public ButtonActionListener(JTextField title, JTextField courseNumber,
+			JTextField days, JTextField startTime, JTextField endTime,
+			MainPage m) {
+		this.title = title;
+		this.courseNumber = courseNumber;
+		this.days = days;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.source = m;
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
@@ -33,6 +48,16 @@ public class ButtonActionListener implements ActionListener{
 			source.users.login(u, p);
 			window.setVisible(false);
 			window.dispose();
+		}
+		else if(arg0.getActionCommand().equals("Create Class")){
+			//case where submiting new class
+			String t = this.title.getText();
+			int cNumber = Integer.parseInt(this.courseNumber.getText());
+			String d = this.days.getText();
+			String s = this.startTime.getText();
+			String e = this.endTime.getText();
+			Class toAdd = new Class(t, cNumber, d, s, e);
+			source.classes.add(toAdd);
 		}
 	}
 }
