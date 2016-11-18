@@ -5,18 +5,22 @@ import java.util.Set;
 
 public class UserService {
 	Set<User> users;
-	public UserService(){
+	MainPage main;
+	public UserService(MainPage main){
 		users = new HashSet();
+		this.main = main;
 	}
-	public User login(String username, String password){
+	public void login(String username, String password){
 		User current = null;
 		for(User u: users){
 			if(u.getUsername().equals(username) && u.getPassword().equals(password)){
 				u.login();
 				current = u;
+				break;
 			}
 		}
-		return current;
+		main.setCurrentUser(current);
+		main.drawMainPanel();
 	}
 	public void logout(User u){
 		u.logout();

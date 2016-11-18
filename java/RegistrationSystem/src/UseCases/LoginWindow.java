@@ -11,23 +11,25 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 public class LoginWindow extends JFrame{
-	private JTextField username = new JTextField(20);
-	private JPasswordField pass = new JPasswordField(20);
+	private JTextField username;
+	private JPasswordField pass;
 	private JButton enter;
 	
-	public LoginWindow(ButtonActionListener listener){
+	public LoginWindow(){
 		this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new FlowLayout());
-		JTextField username = this.username;
-		JPasswordField pass = this.pass;
+		this.username = new JTextField(20);
+		this.pass = new JPasswordField(20);
 		JLabel usernameLabel = new JLabel("Username: ");
 		JLabel passwordLabel = new JLabel("Password: ");
 		mainPanel.add(usernameLabel);
-		mainPanel.add(username);
+		mainPanel.add(this.username);
 		mainPanel.add(passwordLabel);
-		mainPanel.add(pass);
-		this.enter = new JButton("Login");
+		mainPanel.add(this.pass);
+		
+		ButtonActionListener listener = new ButtonActionListener(username, pass, this);
+		this.enter = new JButton("Enter");
 		enter.addActionListener(listener);
 		mainPanel.add(enter);
 		this.add(mainPanel);

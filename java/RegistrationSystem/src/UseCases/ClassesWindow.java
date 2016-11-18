@@ -17,16 +17,19 @@ public class ClassesWindow extends JFrame{
 		mainPanel.setLayout(new BorderLayout());
 		classesFrame.add(mainPanel);
 		Set<Class> classSet = store.getClasses();
-		Object[][] classes = new Object[1][classSet.size()];
-		int i = 0;
-		for(Class c:classSet){
-			classes[0][i] = c.getTitle();
-			i++;
+		int numClasses = classSet.size();
+		if(numClasses > 1){
+			Object[][] classes = new Object[1][numClasses];
+			int i = 0;
+			for(Class c:classSet){
+				classes[0][i] = c.getTitle();
+				i++;
+			}
+			String[] headers = new String[] {"Class Title"};
+			JTable table = new JTable(classes, headers);
+			JScrollPane tableContainer = new JScrollPane(table);
+			mainPanel.add(tableContainer, BorderLayout.CENTER);
 		}
-		String[] headers = new String[] {"Class Title"};
-		JTable table = new JTable(classes, headers);
-		JScrollPane tableContainer = new JScrollPane(table);
-		mainPanel.add(tableContainer, BorderLayout.CENTER);
 		classesFrame.setVisible(true);
 	}
 

@@ -23,20 +23,13 @@ import javax.swing.border.EmptyBorder;
 
 public class MainPage extends JFrame{
 	private JPanel contentPane;
-	//private Class[] classes;
-	private boolean authenticated = false;
-	private String currUsername;
-	private String currPassword;
-	//private User[] users;
-	private JTextField username = new JTextField(20);
-	private JPasswordField pass = new JPasswordField(20);
 	static UserService users;
 	static ClassStore classes;
+	User currentUser = null;
+	MenuActionListener menuListener;
+	ButtonActionListener buttonListener;
 	public static void main(String[] args){
 		//stuff happens here
-		users = new UserService();
-		classes = new ClassStore();
-		Admin admin = new Admin("admin", "admin1", "Administrator Lopez", 80512345, classes, users);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -56,30 +49,28 @@ public class MainPage extends JFrame{
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		ButtonActionListener listener = new ButtonActionListener(this);
-		JMenuBar menuBar = new JMenuBar();
-		contentPane.add(menuBar, BorderLayout.NORTH);
+		menuListener = new MenuActionListener(this);
+		
+		users = new UserService(this);
+		classes = new ClassStore();
+		Admin admin = new Admin("admin", "admin1", "Administrator Lopez", 80512345, classes, users);
+		users.add(admin);
+		
+		drawMainPanel();
 
-		JMenuItem mntmNewMenuItem = new JMenuItem("Siki Registration");
-		menuBar.add(mntmNewMenuItem);
-
-		JMenu mnNewMenu = new JMenu("View");
-		menuBar.add(mnNewMenu);
-
-		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Classes");
-		mntmNewMenuItem_1.addActionListener(listener);
-		mnNewMenu.add(mntmNewMenuItem_1);
-
-		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Login");
-		mntmNewMenuItem_3.addActionListener(listener);
-		menuBar.add(mntmNewMenuItem_3);
-
-
-
+	}
+	public void drawMainPanel(){
+		this.contentPane.removeAll();
+		JMenuBar menuBar = getMenu();
+		this.contentPane.add(menuBar, BorderLayout.NORTH);
+		JPanel panel = getInfoPanel();
+		this.contentPane.add(panel, BorderLayout.CENTER);
+		this.contentPane.revalidate();
+		this.contentPane.repaint();
+	}
+	private JPanel getInfoPanel() {
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
-
 		JPanel welcome = new JPanel();
 		panel.add(welcome, BorderLayout.NORTH);
 
@@ -91,5 +82,90 @@ public class MainPage extends JFrame{
 		JTextPane txtpnFrom = new JTextPane();
 		txtpnFrom.setText(" From here you can see available classes");
 		welcome.add(txtpnFrom, BorderLayout.CENTER);
+		return panel;
+	}
+	private JMenuBar getMenu() {
+		JMenuBar menuBar = new JMenuBar();
+		if(this.currentUser == null){
+			//case where no one has logged in
+			JMenuItem mntmNewMenuItem = new JMenuItem("Siki Registration");
+			menuBar.add(mntmNewMenuItem);
+
+			JMenu mnNewMenu = new JMenu("View");
+			menuBar.add(mnNewMenu);
+
+			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Classes");
+			mntmNewMenuItem_1.addActionListener(menuListener);
+			mnNewMenu.add(mntmNewMenuItem_1);
+
+			JMenuItem mntmNewMenuItem_3 = new JMenuItem("Login");
+			mntmNewMenuItem_3.addActionListener(menuListener);
+			menuBar.add(mntmNewMenuItem_3);
+		}
+		else if(this.currentUser.getClass().getName().equals("UseCases.Student")){
+			//case where user is a student
+			JMenuItem mntmNewMenuItem = new JMenuItem("Siki Registration");
+			menuBar.add(mntmNewMenuItem);
+
+			JMenu mnNewMenu = new JMenu("View");
+			menuBar.add(mnNewMenu);
+
+			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Classes");
+			mntmNewMenuItem_1.addActionListener(menuListener);
+			mnNewMenu.add(mntmNewMenuItem_1);
+
+			JMenuItem mntmNewMenuItem_3 = new JMenuItem("Logout");
+			mntmNewMenuItem_3.addActionListener(menuListener);
+			menuBar.add(mntmNewMenuItem_3);
+		}
+		else if(this.currentUser.getClass().getName().equals("UseCases.Instructor")){
+			//case where user is an instructor
+			JMenuItem mntmNewMenuItem = new JMenuItem("Siki Registration");
+			menuBar.add(mntmNewMenuItem);
+
+			JMenu mnNewMenu = new JMenu("View");
+			menuBar.add(mnNewMenu);
+
+			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Classes");
+			mntmNewMenuItem_1.addActionListener(menuListener);
+			mnNewMenu.add(mntmNewMenuItem_1);
+
+			JMenuItem mntmNewMenuItem_3 = new JMenuItem("Logout");
+			mntmNewMenuItem_3.addActionListener(menuListener);
+			menuBar.add(mntmNewMenuItem_3);
+		}
+		else if(this.currentUser.getClass().getName().equals("UseCases.Admin")){
+			//case where user is an administrator
+			JMenuItem mntmNewMenuItem = new JMenuItem("Siki Registration");
+			menuBar.add(mntmNewMenuItem);
+			
+			JMenu manageMenu = new JMenu("Manage");
+			menuBar.add(manageMenu);
+			JMenuItem manageClassesadd = new JMenuItem("Add Class");
+			JMenuItem manageClassesremove = new JMenuItem("Remove Class");
+			JMenuItem manageUseradd = new JMenuItem("Create User");
+			JMenuItem manageUserremove = new JMenuItem("Remove User");
+			manageMenu.add(manageClassesadd);
+			manageMenu.add(manageClassesremove);
+			manageMenu.add(manageUseradd);
+			manageMenu.add(manageUserremove);
+			
+			JMenu mnNewMenu = new JMenu("View");
+			menuBar.add(mnNewMenu);
+
+			JMenuItem mntmNewMenuItem_1 = new JMenuItem("Classes");
+			mntmNewMenuItem_1.addActionListener(menuListener);
+			JMenuItem viewUsers = new JMenuItem("Users");
+			mnNewMenu.add(mntmNewMenuItem_1);
+			mnNewMenu.add(viewUsers);
+
+			JMenuItem mntmNewMenuItem_3 = new JMenuItem("Logout");
+			mntmNewMenuItem_3.addActionListener(menuListener);
+			menuBar.add(mntmNewMenuItem_3);
+		}
+		return menuBar;
+	}
+	public void setCurrentUser(User u){
+		this.currentUser = u;
 	}
 }
